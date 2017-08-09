@@ -1,11 +1,8 @@
-package org.chicken_ar;
+package gotravel.gotravaling;
 
+import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -15,11 +12,10 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -27,7 +23,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static android.content.Context.LOCATION_SERVICE;
 import static android.content.Context.SENSOR_SERVICE;
@@ -36,11 +31,11 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
     private final Context mContext;
     private ArrayList<Location> pathPoints;
-    //private ArrayList<Location> pointList;
-    private ArrayList<String> pathDescriptions;
+    private ArrayList<Location> pointList;
     private ArrayList<Double> distancePerPoint;
     double totalDistance = 0;
     double remainDistance;
+    double totalTime;
 
     // 현재 GPS 사용유무
     boolean isGPSEnabled = false;
@@ -67,9 +62,8 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
     ImageView arrowImage;
     ImageView destinationPinImage;
-    TextView textView;
 
-    BuildingInfo myLocation;
+    Location myLocation;
 
     float viewAngle = 20;
 
@@ -95,20 +89,19 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
         cameraActivity = ma;
 
-        myLocation = new BuildingInfo(lon, lat, 0);
+        myLocation = new Location("myLocation");
 
         width = ma.dm.widthPixels;
         height = ma.dm.heightPixels;
 
-        arrowImage = (ImageView)ma.findViewById(R.id.duck3);
-        textView = (TextView)ma.findViewById(R.id.textView);
+        arrowImage = (ImageView) ma.findViewById(R.id.duck3);
         destinationPinImage = (ImageView) ma.findViewById(R.id.destination_pin);
 
         imgWidth = (float) arrowImage.getLayoutParams().width;
         imgHeight = (float) arrowImage.getLayoutParams().height;
 
         // 시스템서비스로부터 SensorManager 객체를 얻는다.
-        m_sensor_manager = (SensorManager)ma.getSystemService(SENSOR_SERVICE);
+        m_sensor_manager = (SensorManager) ma.getSystemService(SENSOR_SERVICE);
         // SensorManager 를 이용해서 방향 센서 객체를 얻는다.
         m_ot_sensor = m_sensor_manager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
         //SensorManager.getOrientation()
@@ -125,14 +118,17 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
             // 현재 네트워크 상태 값 알아오기
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            if(!isGPSEnabled && !isNetworkEnabled) {
+            if (!isGPSEnabled && !isNetworkEnabled) {
                 // GPS 와 네트워크사용이 가능하지 않을때 소스 구현
                 return null;
-            }
-            else {
+            } else {
                 this.isGetLocation = true;
                 // 네트워크 정보로 부터 위치값 가져오기
                 if (isNetworkEnabled) {
+                    if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        return null;
+                    }
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
                             MIN_TIME_BW_UPDATES,
@@ -183,13 +179,11 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
                 arrowImage.setX(100);
                 arrowImage.setY((height - imgHeight)/2 + (-(-90 + 90) / (float) 90) * (height));
 
-                double bearing = bearingP1toP2(myLocation.lat,myLocation.lon, pathPoints.get(count).getLatitude(), pathPoints.get(count).getLongitude());
-                //double bearing = bearingP1toP2(myLocation.lat,myLocation.lon, 37.545892, 126.964676);
+                double bearing = bearingP1toP2(myLocation.getLatitude(),myLocation.getLongitude(), pathPoints.get(count).getLatitude(), pathPoints.get(count).getLongitude());
+                //double bearing = bearingP1toP2(myLocation.lat,myLocation.lon, 37.545892, 126.964676);//sample
                 //writeLog(myLocation.lat+","+myLocation.lon + "->" + pathPoints.get(count).getLatitude() +"," + pathPoints.get(count).getLongitude());
                 int degreeForArrow = (int)(event.values[0] - bearing);
-                //double degreeForArrow2 = getDegreeForArrow(count+1);
-                //double degreeForArrow3 = getDegreeForArrow(count+2);
-                double distanceForPoint = calculateDistance(myLocation.lat, myLocation.lon, pathPoints.get(count).getLatitude(), pathPoints.get(count).getLongitude());//37.545892, 126.964676
+                double distanceForPoint = calculateDistance(myLocation.getLatitude(), myLocation.getLongitude(), pathPoints.get(count).getLatitude(), pathPoints.get(count).getLongitude());//37.545892, 126.964676
                 //double distanceForPoint = calculateDistance(myLocation.lat, myLocation.lon, 37.545892, 126.964676);
 
                 double distanceForUser = remainDistance + distanceForPoint;
@@ -203,14 +197,6 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
                 }
 
                 try {
-                    String description;
-                    if (descriptionCount < pathDescriptions.size() - 1 && pathPoints.get(count + 1).getProvider().equals("Point")) {
-                        description = pathDescriptions.get(descriptionCount);
-                    } else {
-                        description = "총 남은거리 : " + (int) distanceForUser + "m";
-                    }
-                    if (distanceForUser < 100000)
-                        textView.setText(description);
 
                     if (-45 <= degreeForArrow && degreeForArrow <= 45) {
                         arrowImage.setRotation(0);//don't rotate!
@@ -225,12 +211,6 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
                 }
 
-                //arrowImage.setRotation((float)degreeForArrow * (-1));
-                //if(distanceForPoint < 1000)
-                 //   textView.setText("다음 포인트까지 남은 거리 : " + (int)distanceForPoint + "m");
-                //if(pathDescriptions.containsKey(count))
-                //    textView.setText(pathDescriptions.get(count));
-
                 try {
                     if (distanceForPoint <= 10 && count + 1 < pathPoints.size()) {
                         remainDistance = remainDistance - distancePerPoint.get(count);
@@ -244,7 +224,7 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
                     if(distanceForUser <= 8) {
                         int destPointIndex = pathPoints.size() - 1;
-                        double degreeForDest = event.values[0] - calculateDistance(myLocation.lat, myLocation.lon, pathPoints.get(destPointIndex).getLatitude(), pathPoints.get(destPointIndex).getLongitude());
+                        double degreeForDest = event.values[0] - calculateDistance(myLocation.getLatitude(), myLocation.getLongitude(), pathPoints.get(destPointIndex).getLatitude(), pathPoints.get(destPointIndex).getLongitude());
                         int gradient = (int) event.values[1];
                         if (-20 <= degreeForDest && degreeForDest <= 20 && -135 <= gradient && gradient <= -45) {
                             Log.i("test", "해당 위치에 건물 존재");
@@ -293,10 +273,9 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        myLocation.lat = location.getLatitude();
-        myLocation.lon = location.getLongitude();
+        myLocation.setLatitude(location.getLatitude());
+        myLocation.setLongitude(location.getLongitude());
         Log.i("****GPS Accuracy", Float.toString(location.getAccuracy()));
-        //Log.i("****GpsDirct info", "onLocationChange----lon: " + lon + ",lat: " + lat);
         gpsCount++;
     }
 
@@ -319,19 +298,16 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
         this.pathPoints = pathPoints;
     }
 
-    //public void setPointList(ArrayList<Location> pointList) {this.pointList = pointList;}
-
     public void setDistancePerPoint(ArrayList<Double> distancePerPoint) {
         this.distancePerPoint = distancePerPoint;
     }
 
-    public void setPathDescriptions(ArrayList<String> arrayList) {
-        this.pathDescriptions = arrayList;
+    public void setTotalDistance(String distance) {
+         this.totalDistance = Double.valueOf(distance);
     }
 
-    public void setTotalDistanceAndRemainDistance(double totalDistance) {
-        this.totalDistance = totalDistance;
-        remainDistance = totalDistance - distancePerPoint.get(0);
+    public void setTotalTime(String time) {
+        this.totalTime = Double.valueOf(time);
     }
 
     public void writeLog(String contents) {
