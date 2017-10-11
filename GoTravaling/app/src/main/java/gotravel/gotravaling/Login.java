@@ -4,19 +4,14 @@ package gotravel.gotravaling;
  * Created by sookmyung on 2017-10-01.
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 public class Login extends AppCompatActivity {
     Button buttonLogin, buttonSignUp;
@@ -66,6 +61,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Join.class);
                 startActivity(intent);
+
             }
         });
     }
@@ -135,4 +131,5 @@ public class Login extends AppCompatActivity {
         }
         */
     }
+
 }
