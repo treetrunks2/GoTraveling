@@ -63,8 +63,8 @@ public class CameraActivity extends AppCompatActivity {
         mPreview.onResume();
 
         Intent intent = getIntent();
-        //dest_lon = intent.getExtras().getDouble("DEST_LON_KEY");
-        //dest_lat = intent.getExtras().getDouble("DEST_LAT_KEY");
+        dest_lon = intent.getExtras().getDouble("DEST_LON_KEY");
+        dest_lat = intent.getExtras().getDouble("DEST_LAT_KEY");
         gpsDirectionInfo = new GpsDirectionInfo(this.getApplicationContext(), this);
         tmapClient = new TmapClient() {
             @Override
