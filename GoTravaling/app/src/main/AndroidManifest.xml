@@ -27,7 +27,8 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".UserMainActivity">
+        <activity android:name=".UserMainActivity"
+            android:label="@string/search_destination">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
