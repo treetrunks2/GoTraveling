@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Join"></activity>
+        <activity android:name=".Join"
+           android:theme="@style/AppTheme.NoActionBar.NoActionBar">
+        </activity>
         <activity android:name=".FindKidsInJoinOfParent"></activity>
     </application>
 
