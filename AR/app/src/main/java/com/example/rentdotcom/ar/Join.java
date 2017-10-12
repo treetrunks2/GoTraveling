@@ -17,31 +17,22 @@ public class Join extends AppCompatActivity {
 
     EditText et_id, et_pw, et_pw_chk;
     String sId, sPw, sPw_chk;
-    Button buttonFInd;
+    Button buttonFInd,buttonCancel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
-
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        et_id = (EditText) findViewById(R.id.idInput);
-        et_pw = (EditText) findViewById(R.id.passwordInput);
-        et_pw_chk = (EditText) findViewById(R.id.passwordConfirm);
-
-        sId = et_id.getText().toString();
-        sPw = et_pw.getText().toString();
-        sPw_chk = et_pw_chk.getText().toString();
+        initializeVariable();
+        clickFindButton();
+        clickCancelButton();
     }
-
 
     void initializeVariable() {
         buttonFInd = (Button) findViewById(R.id.findMyKid);
+        buttonCancel = (Button) findViewById(R.id.buttonCancel);
     }
 
-    void clickLoginButton() {
+    void clickFindButton() {
         buttonFInd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,5 +41,16 @@ public class Join extends AppCompatActivity {
             }
         });
     }
+
+    void clickCancelButton() {
+        buttonFInd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }
 

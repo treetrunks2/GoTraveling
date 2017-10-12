@@ -9,11 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 public class Login extends AppCompatActivity {
     Button buttonLogin, buttonSignUp;
     EditText editTextID, editTextPassword;
+    TextView title,title2,title3;
+
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
@@ -22,10 +26,16 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         // Set up the login form.
         initializeVariable();
         clickLoginButton();
         clickSignUpButton();
+
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");
+        title.setTypeface(typeFace);
+        title2.setTypeface(typeFace);
+        title3.setTypeface(typeFace);
     }
 
     void initializeVariable() {
@@ -33,6 +43,10 @@ public class Login extends AppCompatActivity {
         buttonSignUp = (Button)findViewById(R.id.signupButton);
         editTextID = (EditText)findViewById(R.id.emailInput);
         editTextPassword = (EditText)findViewById(R.id.passwordInput);
+        title = (TextView)findViewById(R.id.titleText1);
+        title2= (TextView)findViewById(R.id.titleText2);
+        title3 = (TextView)findViewById(R.id.titleText3);
+
     }
 
     void clickLoginButton() {
@@ -59,7 +73,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Join.class);
                 startActivity(intent);
-
             }
         });
     }
