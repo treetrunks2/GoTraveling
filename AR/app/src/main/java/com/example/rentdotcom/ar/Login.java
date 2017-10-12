@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class Login extends AppCompatActivity {
     Button buttonLogin, buttonSignUp;
     EditText editTextID, editTextPassword;
@@ -22,6 +24,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+
+        //백그라운드에서 푸시 받는 부분
+        FirebaseMessaging.getInstance().subscribeToTopic("notice");
+
+
+
         // Set up the login form.
         initializeVariable();
         clickLoginButton();
