@@ -3,6 +3,7 @@ package com.example.rentdotcom.ar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -26,7 +27,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
  */
 
 public class main extends AppCompatActivity {
-    Button buttonLocation, buttonDestination;
+    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin;
 
 
     @Override
@@ -37,12 +38,16 @@ public class main extends AppCompatActivity {
         initializeVariable();
         clickLocationButton();
         clickDestinationButton();
+        clickLoginButton();
+        clickJoinButton();
 
     }
 
     void initializeVariable() {
         buttonLocation = (Button)findViewById(R.id.checkLocationOfKidButton);
         buttonDestination = (Button)findViewById(R.id.CheckDesticationOfKidButton);
+        buttonLogin = (Button)findViewById(R.id.buttonLogin);
+        buttonJoin = (Button)findViewById(R.id.buttonJoin);
 
     }
 
@@ -89,5 +94,26 @@ public class main extends AppCompatActivity {
         });
     }
 
+    void clickLoginButton() {
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    void clickJoinButton() {
+        buttonJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Join.class);
+                startActivity(intent);
+
+            }
+        });
+    }
 
 }

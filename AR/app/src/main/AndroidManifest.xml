@@ -16,7 +16,8 @@
         <activity android:name=".Join"
            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
         </activity>
-        <activity android:name="main">
+        <activity android:name="main"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,7 +27,8 @@
 
         </activity>
 
-        <activity android:name=".FindKidsInJoinOfParent"></activity>
+        <activity android:name=".FindKidsInJoinOfParent"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <service
             android:name=".MyFirebaseInstanceIDService">
             <intent-filter>

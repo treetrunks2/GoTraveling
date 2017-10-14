@@ -43,7 +43,7 @@ public class Join extends AppCompatActivity {
     }
 
     void clickCancelButton() {
-        buttonFInd.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
