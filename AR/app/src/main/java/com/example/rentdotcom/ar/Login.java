@@ -20,11 +20,9 @@ import android.graphics.Typeface;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Login extends AppCompatActivity {
-    Button buttonLogin, buttonSignUp;
+    Button buttonLogin, buttonSignUp, btn1, btn2;
     EditText editTextID, editTextPassword;
     TextView title,title2,title3;
-
-
 
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
@@ -35,18 +33,13 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
 
         //백그라운드에서 푸시 받는 부분
         FirebaseMessaging.getInstance().subscribeToTopic("notice");
-
-
-
 
         // Set up the login form.
         initializeVariable();
@@ -94,6 +87,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Join.class);
                 startActivity(intent);
+
             }
         });
     }
