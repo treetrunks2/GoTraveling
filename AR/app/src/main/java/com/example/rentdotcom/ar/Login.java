@@ -29,15 +29,13 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-<<<<<<< HEAD
-=======
 
         //백그라운드에서 푸시 받는 부분
         FirebaseMessaging.getInstance().subscribeToTopic("notice");
 
 
 
->>>>>>> 4bc08f3d2624c4d4b97eca6abd59a00fa39ca0d7
+
         // Set up the login form.
         initializeVariable();
         clickLoginButton();

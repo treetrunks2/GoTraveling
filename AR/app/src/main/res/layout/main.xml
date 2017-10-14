@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mother_title"
+        android:layout_marginTop="71dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/checkLocationOfKidButton"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/space"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:background="@android:color/background_light"
+            android:gravity="center"
+            android:text="아동의 현재 위치 확인"
+            android:textAllCaps="true" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/CheckDesticationOfKidButton"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/checkLocationOfKidButton"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="아동의 목적지 확인"
+            android:textAllCaps="false" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
