@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.DialogInterface;
@@ -21,6 +24,8 @@ import android.content.DialogInterface;
 
 
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import static com.example.rentdotcom.ar.R.id.imageView;
 
 /**
  * Created by sookmyung on 2017-10-14.
@@ -38,16 +43,15 @@ public class main extends AppCompatActivity {
         initializeVariable();
         clickLocationButton();
         clickDestinationButton();
-        clickLoginButton();
-        clickJoinButton();
-
     }
 
     void initializeVariable() {
         buttonLocation = (Button)findViewById(R.id.checkLocationOfKidButton);
         buttonDestination = (Button)findViewById(R.id.CheckDesticationOfKidButton);
-        buttonLogin = (Button)findViewById(R.id.buttonLogin);
-        buttonJoin = (Button)findViewById(R.id.buttonJoin);
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setBackground(new ShapeDrawable(new OvalShape()));
+        imageView.setClipToOutline(true);
 
     }
 
@@ -89,28 +93,6 @@ public class main extends AppCompatActivity {
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-
-            }
-        });
-    }
-
-    void clickLoginButton() {
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-
-            }
-        });
-    }
-
-    void clickJoinButton() {
-        buttonJoin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Join.class);
-                startActivity(intent);
 
             }
         });

@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
                 inputPassword = editTextPassword.getText().toString();
 
                 if(isLoginInputValid(inputID, inputPassword)) {
-                    Intent intent = new Intent(getApplicationContext(), /*수정*/FindKidsInJoinOfParent.class);
+                    Intent intent = new Intent(getApplicationContext(), main.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"invaild login",Toast.LENGTH_SHORT).show();
