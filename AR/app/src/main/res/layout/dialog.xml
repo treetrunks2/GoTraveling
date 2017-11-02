@@ -33,7 +33,7 @@
         android:layout_alignTop="@id/linearLayout1"
         android:gravity="center"
         android:paddingLeft="20dp"
-        android:text="Do you want to Check your kid's location? \n\n 취소             확인  "
+        android:text="Do you want to Check your kid's location?"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="15dp"
         android:textStyle="bold"

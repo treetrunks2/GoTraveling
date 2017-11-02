@@ -67,6 +67,7 @@ public class main extends AppCompatActivity {
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog);
 
+
                 TextView dialogTextInJava;
                 dialogTextInJava = (TextView)dialog.findViewById(R.id.dialogText);
                 Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/charater01" />
+
+    <TextView
+        android:id="@+id/dialogText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/linearLayout1"
+        android:layout_alignLeft="@id/linearLayout1"
+        android:layout_alignRight="@id/linearLayout1"
+        android:layout_alignTop="@id/linearLayout1"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:text="Do you want to Check your kid's location?"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/number"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:hint=""
+        android:inputType="phone"
+        android:textColor="@android:color/holo_orange_light"
+        android:textColorHint="@android:color/holo_orange_light"
+        android:textColorLink="@android:color/holo_orange_light"
+        android:textCursorDrawable="@android:color/holo_orange_light" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:text="cancel"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignEnd="@+id/linearLayout1"
+        android:layout_marginEnd="23dp" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:text="confirm"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_marginStart="21dp"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignStart="@+id/linearLayout1" />
+
+
+</RelativeLayout>

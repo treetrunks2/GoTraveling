@@ -11,24 +11,26 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar">
+
+        </activity>
+        <activity android:name=".Join"
+           android:theme="@style/AppTheme.NoActionBar.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Join"
-           android:theme="@style/AppTheme.NoActionBar.NoActionBar">
         </activity>
         <activity android:name="main"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar">
 
         </activity>
         <activity android:name=".DialogTest">
+        </activity>
+        <activity android:name=".FindKidsInJoinOfParent"></activity>
+        <activity android:name=".Authentication">
 
         </activity>
-
-        <activity android:name=".FindKidsInJoinOfParent"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".ShowSMSActivity"></activity>
         <service
             android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
@@ -43,8 +45,12 @@
         </service>
     </application>
 
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
 </manifest>
