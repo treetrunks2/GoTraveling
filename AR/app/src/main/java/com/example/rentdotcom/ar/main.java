@@ -70,7 +70,7 @@ public class main extends AppCompatActivity {
 
                 TextView dialogTextInJava;
                 dialogTextInJava = (TextView)dialog.findViewById(R.id.dialogText);
-                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");
+                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/TmonMonsori.ttf");
                 dialogTextInJava.setTypeface(typeFace);
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -89,7 +89,7 @@ public class main extends AppCompatActivity {
 
                 TextView dialogTextInJava;
                 dialogTextInJava = (TextView)dialog.findViewById(R.id.dialogText02);
-                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");
+                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/TmonMonsori.ttf");
                 dialogTextInJava.setTypeface(typeFace);
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

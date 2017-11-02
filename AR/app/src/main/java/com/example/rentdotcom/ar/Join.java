@@ -14,9 +14,6 @@ import android.widget.EditText;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import me.drakeet.materialdialog.MaterialDialog;
 
 
 /**
@@ -24,16 +21,14 @@ import me.drakeet.materialdialog.MaterialDialog;
  */
 
 public class Join extends AppCompatActivity {
-
-    EditText et_id, et_pw, et_pw_chk;
-    String sId, sPw, sPw_chk;
-    Button buttonFInd,buttonCancel;
+    Button buttonFInd, buttonCancel, buttonDialogCancel, buttonDialogConfirm;
     EditText inputPhoneNumber;
-    MaterialDialog mMaterialDialog;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
+
         initializeVariable();
         clickFindButton();
         clickCancelButton();
@@ -43,12 +38,6 @@ public class Join extends AppCompatActivity {
         buttonFInd = (Button) findViewById(R.id.findMyKid);
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
         inputPhoneNumber = (EditText) findViewById(R.id.number);
-       // mMaterialDialog = new MaterialDialog(this);
-
-
-        Toast.makeText(getApplicationContext(), "Initializes successfully.",
-                Toast.LENGTH_SHORT).show();
-
     }
 
     void clickFindButton() {
@@ -58,22 +47,34 @@ public class Join extends AppCompatActivity {
                 //Intent intent = new Intent(getApplicationContext(), FindKidsInJoinOfParent.class);
                 //startActivity(intent);
 
-                Dialog dialog = new Dialog(Join.this);
+                final Dialog dialog = new Dialog(Join.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.material_dialog_test);
 
-                //inputPhoneNumber.setHintTextColor(Color.parseColor("#ff0000"));
-
                 TextView dialogTextInJava;
                 dialogTextInJava = (TextView)dialog.findViewById(R.id.dialogText);
-                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");
+                Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/TmonMonsori.ttf");
                 dialogTextInJava.setTypeface(typeFace);
-
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
 
+                buttonDialogCancel = (Button)dialog.findViewById(R.id.dialogCancel);
+                buttonDialogCancel.setOnClickListener(new View.OnClickListener() {
+                    // Perform button logic
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
 
-
+                buttonDialogConfirm = (Button)dialog.findViewById(R.id.dialogConfirm);
+                buttonDialogConfirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
@@ -87,6 +88,5 @@ public class Join extends AppCompatActivity {
             }
         });
     }
-
 }
 
