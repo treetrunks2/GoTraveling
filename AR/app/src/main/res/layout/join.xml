@@ -5,9 +5,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/background02"
     android:gravity="center">
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src ="@drawable/mother_title"
+        android:layout_gravity="center"/>
+
     <Space
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="20dp" />
 
     <EditText
         android:id="@+id/idInput"
@@ -16,7 +24,7 @@
         android:background="@android:color/background_light"
         android:alpha="0.5"
         android:ems="10"
-        android:hint="     ID"
+        android:hint="   ID"
         android:inputType="textPersonName" />
     <Space
         android:layout_width="match_parent"
@@ -28,7 +36,7 @@
         android:inputType="textPassword"
         android:alpha="0.5"
         android:background="@android:color/background_light"
-        android:hint="  Password"
+        android:hint="   Password"
         android:ems="10"
         android:id="@+id/passwordInput" />
 
@@ -40,7 +48,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:inputType="textPassword"
-        android:hint="  Password Confirm"
+        android:hint="   Password Confirm"
         android:alpha="0.5"
         android:background="@android:color/background_light"
         android:ems="10"
@@ -90,7 +98,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:inputType="textPersonName"
-        android:hint="     Name"
+        android:hint="   Name"
         android:alpha="0.5"
         android:background="@android:color/background_light"
         android:ems="10"
@@ -104,7 +112,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:inputType="number"
-        android:hint="     PhoneNumber"
+        android:hint="   PhoneNumber"
         android:alpha="0.5"
         android:background="@android:color/background_light"
         android:ems="10"
@@ -125,14 +133,12 @@
         android:hint="Find my kid"
         android:inputType="textPassword" />
 
-    <Space
-    android:layout_width="match_parent"
-    android:layout_height="10dp" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="311dp"
-        android:orientation="horizontal">
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <Button
             android:id="@+id/buttonAssign"
@@ -154,8 +160,6 @@
             android:layout_alignBottom="@+id/buttonAssign"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp"
             android:text="취소"
             android:textSize="20dp" />
     </RelativeLayout>

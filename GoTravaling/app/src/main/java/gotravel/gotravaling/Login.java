@@ -5,17 +5,20 @@ package gotravel.gotravaling;
  */
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     Button buttonLogin, buttonSignUp;
     EditText editTextID, editTextPassword;
+    TextView title, title2, title3;
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
@@ -28,6 +31,11 @@ public class Login extends AppCompatActivity {
         initializeVariable();
         clickLoginButton();
         clickSignUpButton();
+
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Guardians.ttf");
+        title.setTypeface(typeFace);
+        title2.setTypeface(typeFace);
+        title3.setTypeface(typeFace);
     }
 
     void initializeVariable() {
@@ -35,6 +43,9 @@ public class Login extends AppCompatActivity {
         buttonSignUp = (Button)findViewById(R.id.signupButton);
         editTextID = (EditText)findViewById(R.id.emailInput);
         editTextPassword = (EditText)findViewById(R.id.passwordInput);
+        title = (TextView)findViewById(R.id.titleText1);
+        title2= (TextView)findViewById(R.id.titleText2);
+        title3 = (TextView)findViewById(R.id.titleText3);
     }
 
     void clickLoginButton() {

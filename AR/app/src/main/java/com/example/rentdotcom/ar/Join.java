@@ -21,7 +21,7 @@ import android.widget.Toast;
  */
 
 public class Join extends AppCompatActivity {
-    Button buttonFInd, buttonCancel, buttonDialogCancel, buttonDialogConfirm;
+    Button buttonFInd, buttonCancel, buttonDialogCancel, buttonDialogConfirm, button_assign;
     EditText inputPhoneNumber;
 
 
@@ -32,11 +32,13 @@ public class Join extends AppCompatActivity {
         initializeVariable();
         clickFindButton();
         clickCancelButton();
+        clickAssignButton();
     }
 
     void initializeVariable() {
         buttonFInd = (Button) findViewById(R.id.findMyKid);
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
+        button_assign = (Button)findViewById(R.id.buttonAssign);
         inputPhoneNumber = (EditText) findViewById(R.id.number);
     }
 
@@ -83,6 +85,17 @@ public class Join extends AppCompatActivity {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    void clickAssignButton() {
+        button_assign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }
