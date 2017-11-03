@@ -42,6 +42,10 @@
         </activity>
         <activity android:name=".Join"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="Main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Authentication"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

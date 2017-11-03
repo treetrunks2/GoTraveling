@@ -33,7 +33,8 @@ import static com.example.rentdotcom.ar.R.id.imageView;
  */
 
 public class main extends AppCompatActivity {
-    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin, buttonDialogCancel, buttonDialogConfirm, buttonDialogCall;
+    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin,
+            buttonDialogCancel, buttonDialogConfirm, buttonDialogCall;
 
 
     @Override
