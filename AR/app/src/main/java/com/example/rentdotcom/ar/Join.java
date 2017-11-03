@@ -49,7 +49,7 @@ public class Join extends AppCompatActivity {
 
                 final Dialog dialog = new Dialog(Join.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.material_dialog_test);
+                dialog.setContentView(R.layout.dialog_findmykid);
 
                 TextView dialogTextInJava;
                 dialogTextInJava = (TextView)dialog.findViewById(R.id.dialogText);

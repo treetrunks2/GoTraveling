@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:id="@+id/linearLayout_start_des"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/dialogText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:text="'현아'님이 \n목적지를 지정하였습니다. \n확인하겠습니까?"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/dialogConfirm"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="Confirm"
+            android:onClick="clickDialogConfirmButton"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_orange_light"
+            android:layout_marginEnd="12dp"
+            android:layout_below="@+id/dialogText"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/dialogCancel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="Cancel"
+            android:onClick="clickDialogCancelButton"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_orange_light"
+            android:layout_marginStart="13dp"
+            android:layout_below="@+id/dialogText"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/charater01" />
+
+
+
+
+
+</RelativeLayout>

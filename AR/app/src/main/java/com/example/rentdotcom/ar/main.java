@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -32,7 +33,7 @@ import static com.example.rentdotcom.ar.R.id.imageView;
  */
 
 public class main extends AppCompatActivity {
-    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin, buttonDialogCancel, buttonDialogConfirm;
+    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin, buttonDialogCancel, buttonDialogConfirm, buttonDialogCall;
 
 
     @Override
@@ -85,6 +86,7 @@ public class main extends AppCompatActivity {
                     }
                 });
 
+
                 buttonDialogConfirm = (Button)dialog.findViewById(R.id.dialogConfirm);
                 buttonDialogConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,6 +95,17 @@ public class main extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+                /*
+                buttonDialogCall = (Button)dialog.findViewById(R.id.dialogCall);
+                buttonDialogCall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("tel:010-2333-0856");
+                        Intent it = new Intent(Intent.ACTION_DIAL,uri);
+                        startActivity(it);
+                    }
+                });
+                */
             }
         });
     }
