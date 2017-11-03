@@ -33,11 +33,37 @@
         android:layout_alignTop="@id/linearLayout1"
         android:gravity="center"
         android:paddingLeft="20dp"
-        android:text="Do you want to Check your kid's location?"
+        android:text="아동의 현재 위치를 확인하겠습니까?"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="15dp"
         android:textStyle="bold"
         />
+
+    <Button
+        android:id="@+id/dialogConfirm"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:text="Confirm"
+        android:onClick="clickDialogConfirmButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignEnd="@+id/linearLayout1"
+        android:layout_marginEnd="23dp" />
+
+    <Button
+        android:id="@+id/dialogCancel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:text="Cancel"
+        android:onClick="clickDialogCancelButton"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_marginStart="21dp"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_alignStart="@+id/linearLayout1" />
 
 
 </RelativeLayout>

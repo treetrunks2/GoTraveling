@@ -32,7 +32,7 @@ import static com.example.rentdotcom.ar.R.id.imageView;
  */
 
 public class main extends AppCompatActivity {
-    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin;
+    Button buttonLocation, buttonDestination, buttonLogin, buttonJoin, buttonDialogCancel, buttonDialogConfirm;
 
 
     @Override
@@ -63,7 +63,7 @@ public class main extends AppCompatActivity {
                 //Intent intent = new Intent(getApplicationContext(), DialogTest.class);
                // startActivity(intent);
 
-                Dialog dialog = new Dialog(main.this);
+                final Dialog dialog = new Dialog(main.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog);
 
@@ -75,6 +75,24 @@ public class main extends AppCompatActivity {
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
+                buttonDialogCancel = (Button)dialog.findViewById(R.id.dialogCancel);
+                buttonDialogCancel.setOnClickListener(new View.OnClickListener() {
+                    // Perform button logic
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+                buttonDialogConfirm = (Button)dialog.findViewById(R.id.dialogConfirm);
+                buttonDialogConfirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
@@ -83,7 +101,7 @@ public class main extends AppCompatActivity {
         buttonDestination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(main.this);
+                final Dialog dialog = new Dialog(main.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_destination);
 
@@ -94,6 +112,24 @@ public class main extends AppCompatActivity {
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
+                buttonDialogCancel = (Button)dialog.findViewById(R.id.dialogCancel);
+                buttonDialogCancel.setOnClickListener(new View.OnClickListener() {
+                    // Perform button logic
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+                buttonDialogConfirm = (Button)dialog.findViewById(R.id.dialogConfirm);
+                buttonDialogConfirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "successfully.", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
 
             }
         });
