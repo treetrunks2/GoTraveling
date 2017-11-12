@@ -33,7 +33,7 @@
         android:layout_alignTop="@id/linearLayout1"
         android:gravity="center"
         android:paddingLeft="20dp"
-        android:text="아동의 목적지를 확인하겠습니까?"
+        android:text="아동의 목적지는 남영역 1번출구입니다."
         android:textColor="@android:color/holo_orange_light"
         android:textSize="15dp"
         android:textStyle="bold"

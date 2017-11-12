@@ -14,7 +14,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:gravity="center">
 
         <TextView
@@ -67,7 +67,7 @@
         android:alpha="0.5"
         android:inputType="text"
         android:background="@android:color/background_light"
-        android:hint="  Email" />
+        android:hint="  ID" />
 
     <Space android:layout_width="match_parent" android:layout_height="10dp" />
 
@@ -114,7 +114,7 @@
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Remember login"
+        android:text="로그인유지"
         android:textColor="@android:color/black" />
 
 </LinearLayout>

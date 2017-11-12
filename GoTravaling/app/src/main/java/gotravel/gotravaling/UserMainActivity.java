@@ -1,6 +1,7 @@
 package gotravel.gotravaling;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.os.Handler;
 import android.os.Message;
@@ -37,6 +38,8 @@ public class UserMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
+
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable());
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 

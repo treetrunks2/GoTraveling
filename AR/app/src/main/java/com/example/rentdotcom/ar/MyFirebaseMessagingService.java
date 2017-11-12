@@ -5,24 +5,17 @@ package com.example.rentdotcom.ar;
  * Created by Administrator on 2017-10-12.
  */
 
-import com.google.firebase.FirebaseApp;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.PowerManager;
-import android.util.Log;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONException;
@@ -105,7 +98,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
 
 
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, main.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

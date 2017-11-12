@@ -303,7 +303,7 @@ public class GpsDirectionInfo implements SensorEventListener, LocationListener {
     }
 
     public void setTotalDistance(String distance) {
-         this.totalDistance = Double.valueOf(distance);
+        this.totalDistance = Double.valueOf(distance);
     }
 
     public void setTotalTime(String time) {

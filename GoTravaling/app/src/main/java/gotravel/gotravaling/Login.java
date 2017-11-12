@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
     void initializeVariable() {
         buttonLogin = (Button)findViewById(R.id.loginButton);
         buttonSignUp = (Button)findViewById(R.id.signupButton);
-        editTextID = (EditText)findViewById(R.id.emailInput);
+        editTextID = (EditText)findViewById(R.id.IdInput);
         editTextPassword = (EditText)findViewById(R.id.passwordInput);
         title = (TextView)findViewById(R.id.titleText1);
         title2= (TextView)findViewById(R.id.titleText2);
@@ -52,16 +52,11 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputID, inputPassword;
-                inputID = editTextID.getText().toString();
-                inputPassword = editTextPassword.getText().toString();
-
-                if(isLoginInputValid(inputID, inputPassword)) {
-                    Intent intent = new Intent(getApplicationContext(), /*수정*/Main.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"invaild login",Toast.LENGTH_SHORT).show();
-                }
+                //String inputID, inputPassword;
+                //inputID = editTextID.getText().toString();
+                //inputPassword = editTextPassword.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), Main.class);
+                startActivity(intent);
             }
         });
     }
@@ -81,8 +76,8 @@ public class Login extends AppCompatActivity {
         /*if(email.contains("@"))
             if(passward.length()>4)
                 return true;*/
-        if(email.equals("chicken") || email.equals("chicken2"))
-            if(password.equals("chicken") || password.equals("chicken2"))
+        if(email.equals("pizza") || email.equals("chicken2"))
+            if(password.equals("pizza") || password.equals("chicken2"))
                 return true;
         return false;
     }

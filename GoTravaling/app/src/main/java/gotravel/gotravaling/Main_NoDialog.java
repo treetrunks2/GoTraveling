@@ -23,7 +23,7 @@ import android.widget.TextView;
  * Created by sookmyung on 2017-11-03.
  */
 
-public class Main extends AppCompatActivity {
+public class Main_NoDialog extends AppCompatActivity {
     Button buttonLocation, buttonDialogCancel, buttonDialogConfirm, buttonCall;
     private Handler mHandler;
     private Runnable mRunnable;
@@ -32,20 +32,11 @@ public class Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main2);
 
         initializeVariable();
         clickStartButton();
         clickCallButton();
-
-        mRunnable = new Runnable() {
-            @Override
-            public void run() {
-                dialogConfirm();
-            }
-        };
-        mHandler = new Handler();
-        mHandler.postDelayed(mRunnable, 3000);
 
     }
 
@@ -65,35 +56,6 @@ public class Main extends AppCompatActivity {
         });
     }
 
-    void dialogConfirm() {
-        final Dialog dialog = new Dialog(Main.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_confirm);
-        TextView dialogTextInJava;
-        dialogTextInJava = (TextView) dialog.findViewById(R.id.dialogText02);
-        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/TmonMonsori.ttf");
-        dialogTextInJava.setTypeface(typeFace);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-
-        buttonDialogCancel = (Button) dialog.findViewById(R.id.dialogCancel);
-        buttonDialogCancel.setOnClickListener(new View.OnClickListener() {
-            // Perform button logic
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        buttonDialogConfirm = (Button) dialog.findViewById(R.id.dialogConfirm);
-        buttonDialogConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Authentication.class);
-                startActivity(intent);
-                dialog.dismiss();
-            }
-        });
-    }
 
     void clickCallButton() {
         buttonCall.setOnClickListener(new View.OnClickListener() {

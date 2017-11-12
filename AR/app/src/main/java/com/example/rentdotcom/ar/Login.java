@@ -96,8 +96,8 @@ public class Login extends AppCompatActivity {
         /*if(email.contains("@"))
             if(passward.length()>4)
                 return true;*/
-        if(email.equals("chicken") || email.equals("chicken2"))
-            if(password.equals("chicken") || password.equals("chicken2"))
+        if(email.equals("chicken") || email.equals("pizza"))
+            if(password.equals("chicken") || password.equals("pizza"))
                 return true;
         return false;
     }

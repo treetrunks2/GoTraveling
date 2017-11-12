@@ -1,12 +1,13 @@
 package com.example.rentdotcom.ar;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -39,10 +40,10 @@ public class NowLocationMap extends FragmentActivity implements OnMapReadyCallba
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(37.544606, 126.966694 );
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(37.546380, 126.964713 );
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker Groot").icon(BitmapDescriptorFactory.fromResource(R.drawable.transgroot2)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.setMinZoomPreference(20.0f);
-        mMap.setMaxZoomPreference(28.0f);
+        mMap.setMinZoomPreference(17.0f);
+        mMap.setMaxZoomPreference(25.0f);
     }
 }

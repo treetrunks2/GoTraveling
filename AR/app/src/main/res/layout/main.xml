@@ -44,6 +44,26 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/moving"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="아동 상태 : 도착 지연"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/gif_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +73,8 @@
         <Button
             android:id="@+id/checkLocationOfKidButton"
             android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:background="@android:color/background_light"
+            android:layout_height="80dp"
+            android:background="@android:color/holo_blue_light"
             android:gravity="center"
             android:text="아동의 현재 위치 확인"
             android:textAllCaps="true" />
@@ -67,8 +87,8 @@
         <Button
             android:id="@+id/CheckDesticationOfKidButton"
             android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:background="@android:color/background_light"
+            android:layout_height="80dp"
+            android:background="@android:color/holo_blue_light"
             android:text="아동의 목적지 확인"
             android:textAllCaps="false" />
     </LinearLayout>

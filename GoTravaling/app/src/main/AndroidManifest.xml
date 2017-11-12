@@ -40,12 +40,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Join"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name="Main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity android:name=".Authentication"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity android:name=".Join"></activity>
+        <activity android:name=".Main_NoDialog"></activity>
     </application>
 
 </manifest>
